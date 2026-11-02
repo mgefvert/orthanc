@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/Orthanc/">
+    <Project Path="src/Orthanc.Core/Orthanc.Core.csproj" />
+    <Project Path="src/Orthanc.Server/Orthanc.Server.csproj" />
+    <Project Path="src/Orthanc.Admin/Orthanc.Admin.csproj" />
+    <Project Path="tests/Orthanc.Tests/Orthanc.Tests.csproj" />
+  </Folder>
+  <Folder Name="/DotNetCommons/">
+    <Project Path="DotNetCommons/src/DotNetCommons.EF/DotNetCommons.EF.csproj" />
+    <Project Path="DotNetCommons/src/DotNetCommons.Services/DotNetCommons.Services.csproj" />
+    <Project Path="DotNetCommons/src/DotNetCommons.Web/DotNetCommons.Web.csproj" />
+    <Project Path="DotNetCommons/src/DotNetCommons/DotNetCommons.csproj" />
+  </Folder>
+</Solution>

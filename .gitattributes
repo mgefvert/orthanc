@@ -1,0 +1,5 @@
+collector/orthanc text eol=lf
+collector/*.py text eol=lf
+collector/*.cmd text eol=crlf
+*.sql text eol=lf
+Dockerfile text eol=lf

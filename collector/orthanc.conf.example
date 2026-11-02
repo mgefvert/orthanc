@@ -1,0 +1,25 @@
+[orthanc]
+
+# API server
+server            = https://orthanc.gefvert.org
+
+# Prefer ORTHANC_PSK in the environment or a restricted config file.
+psk               = REPLACE_WITH_ADMIN_GENERATED_KEY
+
+# Whether to add timestamp to output; can be useful if the job itself doesn't have timestamps
+add-timestamps    = false
+
+# Ignore the exit code; e.g. even if the exit code is 1, do not automatically fail the job
+ignore-exitcode   = false
+
+# Job timeout in seconds
+timeout           = 3600
+
+# API request timeouts
+request-timeout   = 10
+
+# ca-file         = /etc/orthanc/internal-ca.pem
+# diagnostic-file = /var/log/orthanc-collector.log
+
+# This should normally go on the command line, unless you have specific .conf files for each job
+# jobname         = nightly-backup

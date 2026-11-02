@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="10.0.9" />
+    <ProjectReference Include="../../DotNetCommons/src/DotNetCommons.Services/DotNetCommons.Services.csproj" />
+    <ProjectReference Include="../../DotNetCommons/src/DotNetCommons.EF/DotNetCommons.EF.csproj" />
+  </ItemGroup>
+</Project>

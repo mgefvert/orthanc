@@ -1,0 +1,3 @@
+[submodule "DotNetCommons"]
+	path = DotNetCommons
+	url = https://github.com/mgefvert/DotNetCommons.git

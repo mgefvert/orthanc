@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="../Orthanc.Core/Orthanc.Core.csproj" />
+    <ProjectReference Include="../../DotNetCommons/src/DotNetCommons.Web/DotNetCommons.Web.csproj" />
+  </ItemGroup>
+</Project>

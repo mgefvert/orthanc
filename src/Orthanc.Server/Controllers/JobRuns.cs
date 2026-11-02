@@ -7,10 +7,10 @@ namespace Orthanc.Server.Controllers;
 [ApiController]
 public class JobRunsController : Controller
 {
-    private readonly ILogger<HealthController> _logger;
+    private readonly ILogger<JobRunsController> _logger;
     private readonly IngestionService _ingestionService;
 
-    public JobRunsController(ILogger<HealthController> logger, IngestionService ingestionService)
+    public JobRunsController(ILogger<JobRunsController> logger, IngestionService ingestionService)
     {
         _logger           = logger;
         _ingestionService = ingestionService;

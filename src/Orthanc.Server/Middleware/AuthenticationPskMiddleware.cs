@@ -1,18 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orthanc.Core;
 
-namespace Orthanc.Server;
+namespace Orthanc.Server.Middleware;
 
 public class AuthenticationPskMiddleware
 {
+    private readonly RequestDelegate _next;
     private readonly ILogger<AuthenticationPskMiddleware> _logger;
 
-    public AuthenticationPskMiddleware(ILogger<AuthenticationPskMiddleware> logger)
+    public AuthenticationPskMiddleware(RequestDelegate next, ILogger<AuthenticationPskMiddleware> logger)
     {
+        _next   = next;
         _logger = logger;
     }
 
-    public async Task Invoke(HttpContext context, RequestDelegate next)
+    public async Task Invoke(HttpContext context)
     {
         if (context.Request.Path.StartsWithSegments("/api"))
         {
@@ -53,6 +55,6 @@ public class AuthenticationPskMiddleware
             context.Items["CustomerId"] = customer.Value;
         }
 
-        await next(context);
+        await _next(context);
     }
 }

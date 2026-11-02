@@ -1,22 +1,23 @@
 ﻿using Orthanc.Core;
-using Orthanc.Core.Services;
 
 namespace Orthanc.Server.Middleware;
 
 public class AppExceptionMiddleware
 {
-    private readonly ILogger<AuthenticationPskMiddleware> _logger;
+    private readonly RequestDelegate _next;
+    private readonly ILogger<AppExceptionMiddleware> _logger;
 
-    public AppExceptionMiddleware(ILogger<AuthenticationPskMiddleware> logger)
+    public AppExceptionMiddleware(RequestDelegate next, ILogger<AppExceptionMiddleware> logger)
     {
+        _next   = next;
         _logger = logger;
     }
 
-    public async Task Invoke(HttpContext context, RequestDelegate next)
+    public async Task Invoke(HttpContext context)
     {
         try
         {
-            await next(context);
+            await _next(context);
         }
         catch (BadHttpRequestException ex)
         {

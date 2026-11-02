@@ -20,6 +20,7 @@ builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = 8 * 1024 * 1
 
 builder.Services.Configure<CommonLoggingOptions>(o => { o.UseUtcTimestamp = true; o.IncludeScopes = true; });
 builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddControllers();
 builder.Services.AddDbContext<OrthancContext>(o => o.UseMySQL(builder.Configuration.GetConnectionString("Orthanc")
                                                               ?? throw new InvalidOperationException("ConnectionStrings:Orthanc is required")));
 builder.Services.AddScoped<ClassifierService>();
@@ -66,5 +67,7 @@ app.UseMiddleware<AppExceptionMiddleware>();
 app.UseWhen(c => c.Connection.RemoteIpAddress != null, branch => branch.UseMiddleware<IpBanMiddleware>());
 app.UseRateLimiter();
 app.UseMiddleware<AuthenticationPskMiddleware>();
+
+app.MapControllers();
 
 app.Run();
